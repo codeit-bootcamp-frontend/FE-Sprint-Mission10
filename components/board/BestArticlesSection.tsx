@@ -10,7 +10,6 @@ import {
 } from "@/styles/CommonStyles";
 import { Article, ArticleListResponse } from "@/types/articleTypes";
 import {
-  ArticleInfo,
   ArticleInfoDiv,
   ArticleInfoWrapper,
   ArticleThumbnail,
