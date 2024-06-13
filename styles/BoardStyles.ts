@@ -1,5 +1,5 @@
-import { SpaceBetween } from "@/styles/CommonStyles";
 import styled from "styled-components";
+import { SpaceBetween } from "@/styles/CommonStyles";
 
 export const ArticleTitle = styled.h2`
   font-size: 18px;
@@ -17,7 +17,7 @@ export const MainContent = styled.div`
   min-height: 72px;
 `;
 
-export const ArticleInfo = styled(SpaceBetween)`
+export const ArticleInfoWrapper = styled(SpaceBetween)`
   margin-top: 16px;
 `;
 

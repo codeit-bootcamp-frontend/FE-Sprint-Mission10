@@ -1,10 +1,10 @@
 import styled from "styled-components";
+import Image from "next/image";
 import { LineDivider } from "@/styles/CommonStyles";
-import TagDisplay from "./TagDisplay";
-import LikeButton from "./LikeButton";
+import TagDisplay from "@/components/items/itemPage/TagDisplay";
+import LikeButton from "@/components/items/itemPage/LikeButton";
 import SeeMoreIcon from "@/public/images/icons/ic_kebab.svg";
 import { Product } from "@/types/productTypes";
-import Image from "next/image";
 
 const SectionContainer = styled.section`
   display: flex;

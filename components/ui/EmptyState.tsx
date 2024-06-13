@@ -13,6 +13,8 @@ const EmptyStateText = styled.p`
   color: ${({ theme }) => theme.colors.gray[400]};
   font-size: 16px;
   line-height: 24px;
+  text-align: center;
+  white-space: pre-wrap; // 문자열의 line break을 렌더링하기 위해 추가
 `;
 
 interface EmptyStateProps {

@@ -12,12 +12,13 @@ import { Article, ArticleListResponse } from "@/types/articleTypes";
 import {
   ArticleInfo,
   ArticleInfoDiv,
+  ArticleInfoWrapper,
   ArticleThumbnail,
   ArticleTitle,
   ImageWrapper,
   MainContent,
   Timestamp,
-} from "../BoardsStyles";
+} from "@/styles/BoardStyles";
 import MedalIcon from "@/public/images/icons/ic_medal.svg";
 import useViewport from "@/hooks/useViewport";
 import LikeCountDisplay from "@/components/ui/LikeCountDisplay";
@@ -47,7 +48,7 @@ const BestArticleCard = ({ article }: { article: Article }) => {
   const dateString = format(article.createdAt, "yyyy. MM. dd");
 
   return (
-    <CardContainer href={`/boards/${article.id}`}>
+    <CardContainer href={`/board/${article.id}`}>
       <BestSticker>
         <MedalIcon alt="베스트 게시글" />
         Best
@@ -72,13 +73,13 @@ const BestArticleCard = ({ article }: { article: Article }) => {
           )}
         </MainContent>
 
-        <ArticleInfo>
+        <ArticleInfoWrapper>
           <ArticleInfoDiv>
             {article.writer.nickname}
             <LikeCountDisplay count={article.likeCount} fontSize={14} />
           </ArticleInfoDiv>
           <Timestamp>{dateString}</Timestamp>
-        </ArticleInfo>
+        </ArticleInfoWrapper>
       </ContentWrapper>
     </CardContainer>
   );

@@ -1,22 +1,12 @@
 import { useEffect, useState } from "react";
-import styled from "styled-components";
-import { Container, LineDivider, StyledLink } from "@/styles/CommonStyles";
+import { Container, LineDivider } from "@/styles/CommonStyles";
 import { getProductDetail } from "@/api/itemApi";
-import ItemProfileSection from "./components/itemPage/ItemProfileSection";
-import ItemCommentSection from "./components/itemPage/ItemCommentSection";
-import BackIcon from "@/public/images/icons/ic_back.svg";
+import ItemProfileSection from "@/components/items/itemPage/ItemProfileSection";
+import ItemCommentSection from "@/components/items/itemPage/ItemCommentSection";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { Product } from "@/types/productTypes";
 import { useRouter } from "next/router";
-
-const BackToMarketPageLink = styled(StyledLink)`
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 auto;
-`;
+import GoBackToIndexPageLink from "@/components/thread/GoBackToIndexPageLink";
 
 const ItemPage: React.FC = () => {
   const [product, setProduct] = useState<Product | null>(null);
@@ -78,10 +68,7 @@ const ItemPage: React.FC = () => {
 
         <ItemCommentSection productId={productId} />
 
-        <BackToMarketPageLink $pill href="/items">
-          목록으로 돌아가기
-          <BackIcon />
-        </BackToMarketPageLink>
+        <GoBackToIndexPageLink pathname="/items" />
       </Container>
     </>
   );

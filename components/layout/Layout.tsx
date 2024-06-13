@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import Header from "./Header";
+import Header from "@/components/layout/Header";
 import { useRouter } from "next/router";
 
 interface LayoutProps {

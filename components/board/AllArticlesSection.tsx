@@ -1,49 +1,38 @@
+import styled from "styled-components";
 import {
-  FlexRowCentered,
   LineDivider,
   SectionHeader,
   SectionTitle,
   StyledLink,
 } from "@/styles/CommonStyles";
 import { Article, ArticleSortOption } from "@/types/articleTypes";
-import styled from "styled-components";
 import {
-  ArticleInfo,
+  ArticleInfoWrapper,
   ArticleThumbnail,
   ArticleTitle,
   ImageWrapper,
   MainContent,
-  Timestamp,
-} from "../BoardsStyles";
+} from "@/styles/BoardStyles";
 import Image from "next/image";
-import { format } from "date-fns";
 import Link from "next/link";
-import ProfilePlaceholder from "@/public/images/ui/ic_profile.svg";
 import SearchBar from "@/components/ui/SearchBar";
 import DropdownMenu from "@/components/ui/DropdownMenu";
 import { useEffect, useState } from "react";
 import LikeCountDisplay from "@/components/ui/LikeCountDisplay";
 import EmptyState from "@/components/ui/EmptyState";
 import { useRouter } from "next/router";
+import ArticleInfo from "@/components/board/ArticleInfo";
 
 const ItemContainer = styled(Link)``;
-
-const ArticleInfoDiv = styled(FlexRowCentered)`
-  gap: 8px;
-  color: var(--gray-600);
-  font-size: 14px;
-`;
 
 interface ArticleItemProps {
   article: Article;
 }
 
 const ArticleItem: React.FC<ArticleItemProps> = ({ article }) => {
-  const dateString = format(article.createdAt, "yyyy. MM. dd");
-
   return (
     <>
-      <ItemContainer href={`/boards/${article.id}`}>
+      <ItemContainer href={`/board/${article.id}`}>
         <MainContent>
           <ArticleTitle>{article.title}</ArticleTitle>
           {article.image && (
@@ -62,15 +51,11 @@ const ArticleItem: React.FC<ArticleItemProps> = ({ article }) => {
           )}
         </MainContent>
 
-        <ArticleInfo>
-          <ArticleInfoDiv>
-            {/* ProfilePlaceholder 아이콘의 SVG 파일에서 고정된 width, height을 삭제했어요 */}
-            <ProfilePlaceholder width={24} height={24} />
-            {article.writer.nickname} <Timestamp>{dateString}</Timestamp>
-          </ArticleInfoDiv>
+        <ArticleInfoWrapper>
+          <ArticleInfo article={article} />
 
           <LikeCountDisplay count={article.likeCount} iconWidth={24} gap={8} />
-        </ArticleInfo>
+        </ArticleInfoWrapper>
       </ItemContainer>
 
       <LineDivider $margin="24px 0" />

@@ -68,7 +68,7 @@ const Header: React.FC = () => {
         <nav>
           <NavList>
             <NavItem>
-              <Link href="/boards" style={getLinkStyle(pathname === "/boards")}>
+              <Link href="/board" style={getLinkStyle(pathname === "/board")}>
                 자유게시판
               </Link>
             </NavItem>

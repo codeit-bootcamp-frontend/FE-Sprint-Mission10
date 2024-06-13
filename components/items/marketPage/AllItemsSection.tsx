@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { getProducts } from "@/api/itemApi";
-import ItemCard from "./ItemCard";
+import ItemCard from "@/components/items/marketPage/ItemCard";
 import DropdownMenu from "@/components/ui/DropdownMenu";
 import PaginationBar from "@/components/ui/PaginationBar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
@@ -9,7 +9,7 @@ import {
   ProductListResponse,
   ProductSortOption,
 } from "@/types/productTypes";
-import { MarketSectionTitle } from "../../MarketStyles";
+import { MarketSectionTitle } from "@/styles/MarketStyles";
 import styled from "styled-components";
 import { SectionHeader, StyledLink } from "@/styles/CommonStyles";
 import useViewport from "@/hooks/useViewport";
